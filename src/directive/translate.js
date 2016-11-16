@@ -252,6 +252,9 @@ angular.module('pascalprecht.translate')
             if ((globallyEnabled && !locallyDefined) || locallyEnabled) {
               $compile(iElement.contents())(scope);
             }
+            if (value && !translateValuesExist) {
+              unbind();
+            }
           } else {
             // translate attribute
             if (!successful && typeof scope.defaultText !== 'undefined') {
